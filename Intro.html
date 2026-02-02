@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="Intro.css">
+</head>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Mouse glow
+    const wrapper = document.querySelector(".page-wrapper");
+    if (wrapper) {
+      document.addEventListener("mousemove", (e) => {
+        wrapper.style.setProperty("--mouse-x", `${e.clientX}px`);
+        wrapper.style.setProperty("--mouse-y", `${e.clientY}px`);
+      });
+    }
+
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  });
+
+  // Splash screen
+  window.addEventListener("load", () => {
+    const splash = document.getElementById("splash");
+    if (!splash) return;
+
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 7000);
+  });
+</script>
+
+
+<div id="splash">
+  <div class="splash-content">
+    <img
+      src="assets/Logo.png"
+      alt="Victoria logo"
+      class="splash-logo"
+    />
+
+    <h1 class="splash-name">Victoria</h1>
+    <p class="splash-role">Software Developer</p>
+  </div>
+</div>
+
+
+
+<body>
+
+      <div class="page-wrapper">
+      <div class="layout">
+        <!-- LEFT SIDE (Fixed) -->
+        <aside class="sidebar">
+          <h1 class="name">Victoria Okello</h1>
+          <h2 class="role">Software Developer</h2>
+      
+          <p class="tagline">
+            I design and build real-world web applications.
+          </p>
+      
+          <nav class="sidebar-nav">
+            <a href="#about" class="nav-item">
+              <span class="nav-line"></span>
+              <span class="nav-text">About</span>
+            </a>
+          
+            <a href="#experience" class="nav-item">
+              <span class="nav-line"></span>
+              <span class="nav-text">Experience</span>
+            </a>
+          
+            <a href="#projects" class="nav-item">
+              <span class="nav-line"></span>
+              <span class="nav-text">Projects</span>
+            </a>
+          </nav>
+
+          <div class="sidebar-socials">
+              <a href="https://github.com/VictoriaOkello" target="_blank" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577v-2.02c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.082-.73.082-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.998.108-.776.42-1.305.763-1.605-2.665-.305-5.467-1.333-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.51 11.51 0 0 1 3-.404c1.02.005 2.047.138 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.653 1.653.242 2.873.12 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.807 5.625-5.48 5.922.43.372.823 1.102.823 2.222v3.293c0 .32.218.694.825.576C20.565 21.796 24 17.298 24 12 24 5.37 18.627 0 12 0z"/>
+                </svg>
+              </a>
+            
+              <a href="https://www.linkedin.com/in/Victoria Okello" target="_blank" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20.447 20.452H17.21V14.84c0-1.337-.027-3.057-1.865-3.057-1.867 0-2.154 1.46-2.154 2.968v5.7H9.956V9h3.11v1.561h.045c.433-.82 1.492-1.684 3.07-1.684 3.283 0 3.89 2.162 3.89 4.977v6.598zM5.337 7.433c-1.003 0-1.815-.813-1.815-1.816 0-1.003.812-1.815 1.815-1.815 1.004 0 1.816.812 1.816 1.815 0 1.003-.812 1.816-1.816 1.816zM6.956 20.452H3.719V9h3.237v11.452z"/>
+                </svg>
+              </a>
+            
+              <a href="mailto:vaokello@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 13.065L.016 4.5h23.968L12 13.065zM12 15.435L0 6.87V19.5h24V6.87L12 15.435z"/>
+                </svg>
+              </a>
+            
+              <a href="https://instagram.com/victoriaokello" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.343 3.608 1.318.975.975 1.256 2.242 1.318 3.608.058 1.266.07 1.646.07 4.84 0 3.204-.012 3.584-.07 4.85-.062 1.366-.343 2.633-1.318 3.608-.975.975-2.242 1.256-3.608 1.318-1.266.058-1.646.07-4.85.07-3.204 0-3.584-.012-4.85-.07-1.366-.062-2.633-.343-3.608-1.318-.975-.975-1.256-2.242-1.318-3.608C2.175 15.587 2.163 15.207 2.163 12c0-3.194.012-3.574.07-4.84.062-1.366.343-2.633 1.318-3.608.975-.975 2.242-1.256 3.608-1.318C8.416 2.175 8.796 2.163 12 2.163zm0 3.675a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/>
+                </svg>
+              </a>
+            </div>
+        </aside>
+      
+        <!-- RIGHT SIDE (Scrollable) -->
+        <main class="content">
+          <section id="about" class="section">
+            <h3>About</h3>
+                <p>
+                  I’m a software developer and IT professional with hands-on experience building
+                  database-driven web applications and supporting real-world enterprise
+                  systems. My work sits at the intersection of development, systems support,
+                  and user-focused problem solving.
+                </p>
+              
+                <p>
+                  I have experience designing and developing full-stack web applications using
+                  HTML, CSS, JavaScript, Node.js, and MySQL, with a strong focus on structured
+                  data, user authentication, and maintainable system architecture. I enjoy
+                  working on applications where reliability, clarity, and usability matter as
+                  much as visual presentation.
+                </p>
+              
+                <p>
+                  Alongside development, I’ve worked in enterprise IT environments supporting
+                  platforms such as Microsoft Dynamics Navision, Salesforce, and Microsoft 365.
+                  This has given me practical exposure to system administration, data
+                  validation, troubleshooting production issues, and documenting technical
+                  processes for long-term maintainability.
+                </p>
+              
+                <p>
+                  One of my key projects, Pulse Link, is a healthcare facility locator platform
+                  designed to improve access to medical services through location-aware search,
+                  interactive maps, and secure user profiles. Building this system strengthened
+                  my understanding of relational databases, geospatial data, API-driven
+                  features, and incremental feature development in a growing codebase.
+                </p>
+              
+                <p>
+                  I’m particularly interested in problem-driven and health-tech projects, where
+                  technology supports real users and real decisions. I value thoughtful design,
+                  clean code, and continuous learning, and I’m motivated by building systems
+                  that are practical, scalable, and genuinely useful.
+                </p>
+              </section>
+              
+          </section>
+          <section id="experience" class="section">
+            <h3>Experience</h3>
+          
+            <a href="https://mespt.org/" target="_blank" class="experience-link">
+            <div class="experience-item">
+              <h4>
+                ICT Attaché · Micro Enterprises Support Programme Trust (MESPT)
+              </h4>
+              <span class="experience-period">
+                May 2025 – Aug 2025
+              </span>
+          
+              <ul>
+                <li>
+                  Supported integration and operational use of enterprise platforms
+                  including Microsoft Dynamics Navision and Salesforce, assisting with
+                  data mapping, testing, and issue resolution.
+                </li>
+                <li>
+                  Participated in system testing and validation to ensure data accuracy
+                  across interconnected systems.
+                </li>
+                <li>
+                  Assisted in troubleshooting production issues by analyzing data flows,
+                  logs, and user-reported problems.
+                </li>
+                <li>
+                  Contributed to system documentation, IT procedures, and asset tracking
+                  to improve maintainability and operational efficiency.
+                </li>
+              </ul>
+            </div>
+            </a>
+          
+            <a href="https://mespt.org/" target="_blank" class="experience-link">
+            <div class="experience-item">
+              <h4>
+                IT Assistant · Micro Enterprises Support Programme Trust (MESPT)
+              </h4>
+              <span class="experience-period">
+                Sep 2025 – Oct 2025
+              </span>
+            
+              <ul>
+                <li>
+                  Provided hands-on technical support for internal systems, software, and
+                  user access issues under operational timelines.
+                </li>
+                <li>
+                  Assisted with system setup, issue resolution, and basic testing tasks
+                  under guidance of senior IT staff.
+                </li>
+                <li>
+                  Collaborated with staff to resolve issues efficiently and maintain
+                  service continuity.
+                </li>
+              </ul>
+            </div>
+            </a>
+          </section>          
+      
+          <section id="projects" class="section">
+            <h3>Projects</h3>
+          
+            <div class="project">
+              <h4 class="project-title">
+                Pulse Link — Healthcare Facility Locator Platform
+              </h4>
+          
+              <p class="project-description">
+                A database-driven web application designed to help users locate nearby
+                healthcare facilities and manage personalized access through secure
+                profiles and location-aware search.
+              </p>
+          
+              <ul class="project-features">
+                <li>
+                  Designed and implemented a relational database using MySQL to manage
+                  users, facilities, sessions, and activity history.
+                </li>
+                <li>
+                  Integrated GPS-based location services and interactive maps using
+                  Leaflet to visualize facilities and user proximity.
+                </li>
+                <li>
+                  Implemented secure user authentication and session management to
+                  support personalized features.
+                </li>
+                <li>
+                  Built modular frontend components using HTML, CSS, and JavaScript with
+                  responsive layouts and incremental feature development.
+                </li>
+                <li>
+                  Documented system functionality with emphasis on scalability and
+                  maintainability.
+                </li>
+              </ul>
+          
+              <p class="project-tech">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Node.js</span>
+                <span>MySQL</span>
+                <span>Leaflet.js</span>
+              </p>
+          
+              <div class="project-links">
+                <a href="https://github.com/VictoriaOkello/PULSE-LINK-Nairobi-County-Digital-Health-Connectivity-Platform" target="_blank">View Code</a>
+                <a href="#" target="_blank">Live Demo</a>
+              </div>
+            </div>
+            <div class="project">
+                <h4 class="project-title">
+                  Conference Registration & Receipt Generator
+                </h4>
+              
+                <p class="project-description">
+                  An internal web-based application developed to automate conference
+                  registration and digital receipt generation, replacing manual
+                  spreadsheet-based workflows and improving data accuracy.
+                </p>
+              
+                <ul class="project-features">
+                  <li>
+                    Designed structured forms with validation to capture attendee
+                    information accurately and reduce manual data entry errors.
+                  </li>
+                  <li>
+                    Implemented automated receipt generation with formatted digital
+                    outputs to streamline administrative processes.
+                  </li>
+                  <li>
+                    Collaborated with internal staff to gather requirements, test
+                    features, and refine functionality based on real usage.
+                  </li>
+                  <li>
+                    Documented application usage to support continued internal use
+                    and maintenance.
+                  </li>
+                </ul>
+              
+                <p class="project-tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>MySQL</span>
+                  <span>PHP</span>
+                </p>
+              
+                <div class="project-links">
+                  <a href="https://github.com/VictoriaOkello/Conference_Register_and_Invoice_Generator" target="_blank">View Code</a>
+                  <a href="#" target="_blank">Live Demo</a>
+                </div>
+              </div>
+              
+          </section>
+                    
+      <footer class="site-footer">
+        <p>Building thoughtful web experiences · Victoria Okello · <span id="year"></span></p>
+      </footer>
+      
+        </main>
+      </div>
+      </div>
+
+</body>
+</html>
