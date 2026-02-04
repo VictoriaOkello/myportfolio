@@ -7,7 +7,7 @@
 </head>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Mouse glow
+    /* ---------------- Mouse glow ---------------- */
     const wrapper = document.querySelector(".page-wrapper");
     if (wrapper) {
       document.addEventListener("mousemove", (e) => {
@@ -15,24 +15,52 @@
         wrapper.style.setProperty("--mouse-y", `${e.clientY}px`);
       });
     }
-
-    // Footer year
+  
+    /* ---------------- Footer year ---------------- */
     const yearEl = document.getElementById("year");
     if (yearEl) {
       yearEl.textContent = new Date().getFullYear();
     }
+  
+    /* ---------------- Sidebar active state ---------------- */
+    const sections = document.querySelectorAll("section[id]");
+    const navItems = document.querySelectorAll(".nav-item");
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+  
+          const activeId = entry.target.id;
+  
+          navItems.forEach(item => {
+            item.classList.toggle(
+              "active",
+              item.dataset.section === activeId
+            );
+          });
+        });
+      },
+      {
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0
+      }
+    );
+  
+    sections.forEach(section => observer.observe(section));
   });
-
-  // Splash screen
+  
+  /* ---------------- Splash screen ---------------- */
   window.addEventListener("load", () => {
     const splash = document.getElementById("splash");
     if (!splash) return;
-
+  
     setTimeout(() => {
       splash.style.display = "none";
     }, 7000);
   });
-</script>
+  </script>
+  
 
 
 <div id="splash">
@@ -64,22 +92,22 @@
           </p>
       
           <nav class="sidebar-nav">
-            <a href="#about" class="nav-item">
+            <a href="#about" class="nav-item" data-section="about">
               <span class="nav-line"></span>
               <span class="nav-text">About</span>
             </a>
           
-            <a href="#experience" class="nav-item">
+            <a href="#experience" class="nav-item" data-section="experience">
               <span class="nav-line"></span>
               <span class="nav-text">Experience</span>
             </a>
           
-            <a href="#projects" class="nav-item">
+            <a href="#projects" class="nav-item" data-section="projects">
               <span class="nav-line"></span>
               <span class="nav-text">Projects</span>
             </a>
           </nav>
-
+          
           <div class="sidebar-socials">
               <a href="https://github.com/VictoriaOkello" target="_blank" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -209,6 +237,18 @@
                 </li>
               </ul>
             </div>
+            </a>
+          </section>         
+          
+          <section class="resume-cta">
+            <a
+              href="assets/Victoria_Okello_CV.pdf"
+              target="_blank"
+              rel="noopener"
+              class="resume-link"
+            >
+              <span>View Full Résumé</span>
+              <span class="arrow">↗</span>
             </a>
           </section>          
       
